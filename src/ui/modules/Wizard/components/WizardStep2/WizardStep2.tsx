@@ -30,6 +30,7 @@ const WizardStep2: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [password.value, confirmPassword.value])
 
+  console.log('a', password)
 
   const handleOnPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newPassword = event.target.value;
@@ -47,8 +48,8 @@ const WizardStep2: React.FC = () => {
       value: newConfirmPassword,
       ...validateConfirmPassword(newConfirmPassword, password.value)
     });
-
   }
+
   const handleOnCluePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newCluePassword = event.target.value;
     setCluePassword(newCluePassword);
@@ -60,7 +61,11 @@ const WizardStep2: React.FC = () => {
   }
 
   const checkValidForm = () => {
-    if(password.error === false && confirmPassword.error === false) {
+    const errorsPassword = validatePassword(password.value);
+    const errorsConfimPassword = validateConfirmPassword(confirmPassword.value, password.value);
+
+
+    if(errorsPassword.error === false && errorsConfimPassword.error === false) {
       setIsValidForm(true)
     } else {
       setIsValidForm(false)
@@ -96,12 +101,19 @@ const WizardStep2: React.FC = () => {
         <div>
           <label>Crea tu Contraseña Maestra</label>
           <input type={password.isVisible ? 'text' : 'password'} name="password" value={password.value} placeholder="Contraseña" onChange={handleOnPassword}  />
-        <span onClick={handleIsVsiblePassword}>{ password.isVisible ? <IcoEyeOpen width={24} height={24} />: <IcoEyeClose width={24} height={24} />}</span>
+          <span onClick={handleIsVsiblePassword}>{ password.isVisible ? <IcoEyeOpen width={24} height={24} />: <IcoEyeClose width={24} height={24} />}</span>
+          <div className="errors">
+            { typeof password.error === 'object' && password.error.map( (error: string) => <p>{ error}</p>) }
+          </div>
+          
         </div>
         <div>
           <label>Repite tu Contraseña Maestra</label>
           <input type={confirmPassword.isVisible ? 'text' : 'password'} name="confirmPassword" value={confirmPassword.value} placeholder="Repite tu contraseña" onChange={handleOnConfirmPassword}  />
           <span onClick={handleIsVsibleConfirmPassword}>{ confirmPassword.isVisible ?<IcoEyeOpen width={24} height={24} />: <IcoEyeClose width={24} height={24} />}</span>
+          <div className="errors">
+            { confirmPassword.error && <p>Las contraseñas deben coincidir</p> }
+          </div>
         </div>
       </fieldset>
       <fieldset>

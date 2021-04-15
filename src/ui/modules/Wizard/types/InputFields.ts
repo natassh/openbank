@@ -1,5 +1,5 @@
 export type InputPassword = {
     value: string,
-    error: boolean | undefined,
+    error: string[] | boolean | undefined,
     isVisible: boolean
-  }
+}
