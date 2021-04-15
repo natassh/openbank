@@ -13,4 +13,5 @@ body {
   font-family: var(--main-font);
   font-size: var(--font-size);
   font-weight: var(--regular);
+  color: var(--secondary-color);
 }

@@ -3,7 +3,8 @@ import { Wizard } from '../types/wizard'
 
 type WizardContextState = {
     state: Wizard,
-    acceptTerms: () => void
+    acceptTerms: () => void,
+    clearWizard: () => void
 }
 
 export const WizardContext = React.createContext<WizardContextState>({
@@ -11,7 +12,8 @@ export const WizardContext = React.createContext<WizardContextState>({
         currentStep: 1,
         verifyPassword: false
     },
-    acceptTerms:() => {}
+    acceptTerms:() => {},
+    clearWizard:() => {}
 	
 });
 
@@ -31,10 +33,17 @@ const WizardProvider: React.FC<WizardProviderProps> = ({children}) => {
             currentStep: 2
         }) 
     }
+    const clearWizard = () => {
+        setState({
+            currentStep: 1,
+            verifyPassword: false
+        })
+    }
 
 	const value = {
         state,
-        acceptTerms
+        acceptTerms,
+        clearWizard
 	}
 
     return (

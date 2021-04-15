@@ -6,18 +6,14 @@ import './WizardStep1.css';
 
 const WizardStep1: React.FC = () => {
   const {state, acceptTerms} = useContext(WizardContext);
-  // console.log(state.currentStep);
-
   const [isAcceptedTerms, setIsAcceptedTerms] = useState<boolean>(false);
-  // console.log('isAcceptedTerms: ', isAcceptedTerms);
 
   const handleOnChangeThermsOfAge = () => {
     setIsAcceptedTerms(!isAcceptedTerms)
   }
 
-  const handleOnSubmit = async (event: React.SyntheticEvent) => {
+  const handleOnSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    // console.log("Pulsado boton W1 para pasar al W2")
     acceptTerms();
   }
   return (
