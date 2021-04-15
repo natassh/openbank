@@ -1,0 +1,76 @@
+.WizardStep3 {
+    & header {
+        padding: 2rem 0 2rem 2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid var(--border-color);
+        
+    }
+    
+    & h2 {
+        font-family: var(--main-font);
+        font-size: 1.2rem;
+        font-weight: var(--semi-bold);
+        padding: 0 3rem 0 3rem;
+        margin-bottom: .5rem;
+        position: relative;
+    }
+    & p {
+        margin: 0;
+        padding: 0;
+        padding: 0 3rem 0 3rem;
+        font-family: var(--main-font);
+        font-size: 0.8rem;
+        font-weight: var(--regular);
+        
+    }
+    & a {
+        padding: 0 3rem 0 3rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    & .link {
+        font-family: var(--main-font);
+        font-size: 0.8rem;
+        font-weight: var(--medium);
+        color: var(--primary-color);
+        padding-right: 4.2rem;
+        position: relative;
+    }
+    & .link:after {
+        display: block;
+        content: ">";
+        width: 1rem;
+        height: 1rem;
+        color:var(--primary-color);
+        position: absolute;
+        top: 1px;
+        right: 2.8125rem;
+    }
+}
+
+.WizardOK {
+    & h2:after {
+        display: block;
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        color:var(--primary-color);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../../../../App/assets/images/icoOK.svg);
+    }
+}
+.WizardKO {
+    & h2:after {
+        display: block;
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        color:var(--primary-color);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../../../../App/assets/images/icoKO.svg);
+    }
+}

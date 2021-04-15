@@ -1,6 +1,8 @@
 .Wizard {
   width: 900px;
   margin: 0 auto;
+  border: 1px solid var(--bg);
+  padding-bottom: 2rem;
 }
 .WizardStep {
   & > fieldset {
@@ -103,4 +105,20 @@ form {
   & .cancelLink:hover {
     text-decoration: underline;
   }
+}
+.link {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  color: var(--secondary-color);
+  font-family: var(--main-font);
+  font-size: 1rem;
+  font-weight: var(--semi-bold);
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
 }

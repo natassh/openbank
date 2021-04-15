@@ -32,7 +32,6 @@ const WizardProvider: React.FC<WizardProviderProps> = ({children}) => {
         })
     }
     const verifyPasswordManager = async (password: string) => {
-        console.log("password:", password);
         try {
             await verifyPassword(password);
             setState({

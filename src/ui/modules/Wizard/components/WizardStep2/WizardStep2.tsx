@@ -100,7 +100,7 @@ const WizardStep2: React.FC = () => {
       <a href="/" className="cancelLink" onClick={handleonClick}>Cancelar</a>
       <button 
       disabled={!isValidForm} 
-      >Siguiente </button>
+      >Siguiente</button>
     </fieldset>
     </form>
   );
