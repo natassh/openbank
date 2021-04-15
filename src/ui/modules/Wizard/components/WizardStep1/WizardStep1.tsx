@@ -43,7 +43,7 @@ const WizardStep1: React.FC = () => {
         <p>Por ejemplo, el número de tu tarjeta, el PIN y el PUK de tu teléfono móvil, el número de serie de alguno de tus dispositivos o cualquier información que necesites tener en lugar seguro.</p>
       </div>
     </fieldset>
-    <fieldset>
+    <fieldset className="actions">
       <label>
         <input 
           type="checkbox" 

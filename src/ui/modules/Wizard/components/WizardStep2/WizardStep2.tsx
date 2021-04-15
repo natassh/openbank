@@ -67,9 +67,9 @@ const WizardStep2: React.FC = () => {
     <form  className="WizardStep2 WizardStep" onSubmit={handleOnSubmit}>
     <fieldset>
       <h1>Crea tu Password Manager</h1>
-      <p>En primer lugar, debes crear una contraseña diferente para sus pertenencias electrónicas.</p>
-      <p>No podrás recuperar tu contraseña, así que recuérdala bien.</p>
-      <fieldset>
+      <p>En primer lugar, debes crear una contraseña diferente para sus pertenencias electrónicas.No podrás recuperar tu contraseña, así que recuérdala bien.
+      </p>
+      <fieldset className="wrapper">
         <div>
           <label>Crea tu Contraseña Maestra</label>
           <input type="text" name="password" value={password.value} placeholder="Contraseña" onChange={handleOnPassword}  />
@@ -88,7 +88,7 @@ const WizardStep2: React.FC = () => {
         </div>
       </fieldset>
     </fieldset>
-    <fieldset>
+    <fieldset className="actions">
       <a href="#" className="cancelLink" onClick={handleonClick}>Cancelar</a>
       <button 
       // disabled={!isValidFormFields} 
