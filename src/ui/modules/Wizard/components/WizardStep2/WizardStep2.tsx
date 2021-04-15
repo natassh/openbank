@@ -3,6 +3,8 @@ import { WizardContext } from '../../context/WizardProvider';
 import {InputPassword} from '../../types/InputFields';
 import {validatePassword} from '../../services/validatePassword/validatePassword';
 import {validateConfirmPassword} from '../../services/validateConfirmPassword/validateConfirmPassword';
+import { ReactComponent as IcoEyeOpen } from "../../../../App/assets/images/icoEyeOpen.svg";
+import { ReactComponent as IcoEyeClose } from "../../../../App/assets/images/icoEyeClose.svg";
 import './WizardStep2.css';
 
 const WizardStep2: React.FC = () => {
@@ -13,8 +15,8 @@ const WizardStep2: React.FC = () => {
     value: "",
     error: undefined,
     isVisible: false
-
   });
+  console.log()
   const [confirmPassword, setConfirmPassword] = useState<InputPassword>({
     value: "",
     error: undefined,
@@ -65,6 +67,19 @@ const WizardStep2: React.FC = () => {
     }
   }
 
+  const handleIsVsiblePassword = () => {
+    setPassword({
+      ...password,
+      isVisible: !password.isVisible
+    })
+  }
+  const handleIsVsibleConfirmPassword = () => {
+    setConfirmPassword({
+      ...confirmPassword,
+      isVisible: !confirmPassword.isVisible
+    })
+  }
+
   const handleOnSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     if(isValidForm) {
@@ -80,11 +95,13 @@ const WizardStep2: React.FC = () => {
       <fieldset className="wrapper">
         <div>
           <label>Crea tu Contraseña Maestra</label>
-          <input type="text" name="password" value={password.value} placeholder="Contraseña" onChange={handleOnPassword}  />
+          <input type={password.isVisible ? 'text' : 'password'} name="password" value={password.value} placeholder="Contraseña" onChange={handleOnPassword}  />
+        <span onClick={handleIsVsiblePassword}>{ password.isVisible ? <IcoEyeOpen width={24} height={24} />: <IcoEyeClose width={24} height={24} />}</span>
         </div>
         <div>
           <label>Repite tu Contraseña Maestra</label>
-          <input type="text" name="confirmPassword" value={confirmPassword.value} placeholder="Repite tu contraseña" onChange={handleOnConfirmPassword}  />
+          <input type={confirmPassword.isVisible ? 'text' : 'password'} name="confirmPassword" value={confirmPassword.value} placeholder="Repite tu contraseña" onChange={handleOnConfirmPassword}  />
+          <span onClick={handleIsVsibleConfirmPassword}>{ confirmPassword.isVisible ?<IcoEyeOpen width={24} height={24} />: <IcoEyeClose width={24} height={24} />}</span>
         </div>
       </fieldset>
       <fieldset>

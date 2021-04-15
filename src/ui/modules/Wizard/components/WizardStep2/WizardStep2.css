@@ -1,4 +1,7 @@
 form.WizardStep2 {
+    & svg {
+        fill: var(--secondary-bg);
+    }
     & fieldset {
         & > div {
             display: flex;
@@ -33,10 +36,18 @@ form.WizardStep2 {
         margin-bottom: 1.5rem;
         & > div {
             margin-right: 2rem;
+            position: relative;
+            & span {
+                position: absolute;
+                top: 2rem;
+                right: 1rem;
+                cursor: pointer;
+            }
         }
         & > div:last-child {
             margin-right: 0;
         }
+
     }
     & fieldset:last-child {
         border: none;

@@ -15,7 +15,7 @@ const WizardMenu: React.FC = () => {
         const isChecked = isCheckedStep(step) ? 'checked ' : '';
 
         return (
-          <li key={step} className={`${isActive} ${isChecked}`} ><span>{isCheckedStep(step) ? 'V' : step} </span></li>
+          <li key={step} className={`${isActive} ${isChecked}`} ><span>{isCheckedStep(step) ? '✓' : step} </span></li>
         )
       })}
     </ul>
