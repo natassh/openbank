@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import { WizardContext } from '../../context/WizardProvider'
+
 import './WizardMenu.css';
 
 const STEPS = [1, 2, 3];
 
 const WizardMenu: React.FC = () => {
   const {currentStep} = useContext(WizardContext);
+
   const isActiveStep = (step: number): boolean => step === currentStep;
   const isCheckedStep = (step: number): boolean => step < currentStep;
+  
   return (
     <ul className="WizardMenu">
       { STEPS.map( step => {

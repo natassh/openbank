@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import { WizardContext } from '../../context/WizardProvider';
 import WizardStepIco1 from '../../../../App/assets/images/WizardStepIco1.png';
 import WizardStepIco2 from '../../../../App/assets/images/WizardStepIco2.png';
+import { useTranslation } from 'react-i18next';
 import './WizardStep1.css';
 
 const WizardStep1: React.FC = () => {
   const {acceptTerms} = useContext(WizardContext);
+  const { t } = useTranslation();
   const [isAcceptedTerms, setIsAcceptedTerms] = useState<boolean>(false);
 
   const handleOnChangeThermsOfAge = () => {
@@ -19,7 +21,7 @@ const WizardStep1: React.FC = () => {
   return (
   <form  className="WizardStep1 WizardStep" onSubmit={handleOnSubmit}>
     <fieldset>
-      <h1>Crea tu Password Manager</h1>
+      <h1>{t('_step1_main_title')}</h1>
       <ul>
         <li>
           <figure>
