@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import type {  Wizard, WizardProviderProps, WizardContextState } from '../types/wizard';
 import {verifyPassword} from '../services/verifyPassword'
 
@@ -12,37 +12,65 @@ const WizardContext = React.createContext<WizardContextState>({
     verifyPasswordManager: (password:string) => {}
 });
 
+const reducer = (state: Wizard, action: any) => {
+    switch (action.type) {
+      case "CLEAR_WIZARD": {
+        return {
+            currentStep: 1,
+            verifyPassword: false
+        }
+      }
+      case "ACCEPT_TERMS": {
+        return {
+            ...state,
+            currentStep: 2
+        }
+      }
+      case "VERIFY_PASSWORD_MANAGER": {
+        return {
+            currentStep: 3,
+            verifyPassword: action.value
+        }
+      }
+
+      default:
+        return state;
+    }
+  };
+
+
+const initialState = {
+    currentStep: 1,
+    verifyPassword: false
+};
 
 const WizardProvider: React.FC<WizardProviderProps> = ({children}) => {
 
-    const [state, setState] = useState<Wizard>({
-        currentStep: 1,
-        verifyPassword: false
-    })
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+
     const acceptTerms = () => {
-        setState({
-            ...state,
-            currentStep: 2
-        }) 
+        dispatch({
+            type: "ACCEPT_TERMS"
+        })
     }
     const clearWizard = () => {
-        setState({
-            currentStep: 1,
-            verifyPassword: false
+        dispatch({
+            type: "CLEAR_WIZARD"
         })
     }
     const verifyPasswordManager = async (password: string) => {
         try {
             await verifyPassword(password);
-            setState({
-                currentStep: 3,
-                verifyPassword: true
-            })
+            dispatch({
+                type: "VERIFY_PASSWORD_MANAGER",
+                value: true
+              })
         } catch (e) {
-            setState({
-                currentStep: 3,
-                verifyPassword: false
-            })
+            dispatch({
+                type: "VERIFY_PASSWORD_MANAGER",
+                value: false
+              })
         }
         
     }
