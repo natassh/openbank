@@ -5,7 +5,7 @@ import WizardStepIco2 from '../../../../App/assets/images/WizardStepIco2.png';
 import './WizardStep1.css';
 
 const WizardStep1: React.FC = () => {
-  const {state, acceptTerms} = useContext(WizardContext);
+  const {acceptTerms} = useContext(WizardContext);
   const [isAcceptedTerms, setIsAcceptedTerms] = useState<boolean>(false);
 
   const handleOnChangeThermsOfAge = () => {
@@ -48,9 +48,7 @@ const WizardStep1: React.FC = () => {
         <input 
           type="checkbox" 
           id="thermsOfAge" 
-          onChange={() => {
-            handleOnChangeThermsOfAge()
-          }}
+          onChange={handleOnChangeThermsOfAge}
         /> 
         Confirmo que soy mayor de edad.
         </label>

@@ -2,15 +2,22 @@ import React, { useContext } from 'react';
 import { WizardContext } from '../../context/WizardProvider'
 import './WizardMenu.css';
 
-const WizardMenu: React.FC = () => {
-  // const {state} = useContext(WizardContext);
-  // console.log(state)
+const STEPS = [1, 2, 3];
 
+const WizardMenu: React.FC = () => {
+  const {currentStep} = useContext(WizardContext);
+  const isActiveStep = (step: number): boolean => step === currentStep;
+  const isCheckedStep = (step: number): boolean => step < currentStep;
   return (
     <ul className="WizardMenu">
-      <li className="checked"><span>1</span></li>
-      <li className="active"><span>2</span></li>
-      <li><span>3</span></li>
+      { STEPS.map( step => {
+        const isActive = isActiveStep(step) ? 'active ' : '';
+        const isChecked = isCheckedStep(step) ? 'checked ' : '';
+
+        return (
+          <li key={step} className={`${isActive} ${isChecked}`} ><span>{isCheckedStep(step) ? 'V' : step} </span></li>
+        )
+      })}
     </ul>
   );
 }

@@ -1,32 +1,21 @@
 import React, { useState } from 'react';
-import {Password} from '../types/password';
-import { Wizard } from '../types/wizard';
+import type {  Wizard, WizardProviderProps, WizardContextState } from '../types/wizard';
 import {verifyPassword} from '../services/verifyPassword'
 
-type WizardContextState = {
-    state: Wizard,
-    acceptTerms: () => void,
-    clearWizard: () => void,
-    createPasswordManager: (password:string) => void
-}
 
-export const WizardContext = React.createContext<WizardContextState>({
-    state: {
-        currentStep: 1,
-        verifyPassword: false
-    },
+
+const WizardContext = React.createContext<WizardContextState>({
+    currentStep: 1,
+    isPasswordValid: null,
     acceptTerms:() => {},
     clearWizard:() => {},
-    createPasswordManager: (password:string) => {}
+    verifyPasswordManager: (password:string) => {}
 });
 
-type WizardProviderProps = {
-    children: React.ReactNode;
-}
 
 const WizardProvider: React.FC<WizardProviderProps> = ({children}) => {
 
-    const [state, setState] = useState({
+    const [state, setState] = useState<Wizard>({
         currentStep: 1,
         verifyPassword: false
     })
@@ -42,17 +31,29 @@ const WizardProvider: React.FC<WizardProviderProps> = ({children}) => {
             verifyPassword: false
         })
     }
-    const createPasswordManager = async (password: string) => {
+    const verifyPasswordManager = async (password: string) => {
         console.log("password:", password);
-        const verifyPasswordResponse = await verifyPassword(password);
-        console.log('verifyPasswordResponse ', verifyPasswordResponse)
+        try {
+            await verifyPassword(password);
+            setState({
+                currentStep: 3,
+                verifyPassword: true
+            })
+        } catch (e) {
+            setState({
+                currentStep: 3,
+                verifyPassword: false
+            })
+        }
+        
     }
 
 	const value = {
-        state,
+        currentStep: state.currentStep,
+        isPasswordValid: state.verifyPassword,
         acceptTerms,
         clearWizard,
-        createPasswordManager
+        verifyPasswordManager
 	}
 
     return (
@@ -60,4 +61,4 @@ const WizardProvider: React.FC<WizardProviderProps> = ({children}) => {
     )
 };
 
-export {WizardProvider};
+export {WizardContext, WizardProvider};

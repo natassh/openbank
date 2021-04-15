@@ -3,12 +3,16 @@ import { WizardContext } from '../../context/WizardProvider'
 import './WizardStep3.css';
 
 const WizardStep3: React.FC = () => {
-  const {state} = useContext(WizardContext);
-  console.log(state.currentStep);
-
+  const {isPasswordValid} = useContext(WizardContext);
+  if(isPasswordValid) {
+    return (
+      <p>ok</p>
+    );
+  }
   return (
-    <p>WizardStep3</p>
+    <p>ko</p>
   );
+  
 }
 
 export {WizardStep3};

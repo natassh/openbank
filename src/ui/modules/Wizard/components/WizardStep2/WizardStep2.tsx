@@ -1,51 +1,55 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { WizardContext } from '../../context/WizardProvider';
-import {Password} from '../../types/password';
-import {isValidPassword} from '../../services/isValidPassword/isValidPassword';
-import {isValidConfirmPassword} from '../../services/isValidConfirmPassword/isValidConfirmPassword';
-import {isValidCluePassword} from '../../services/isValidCluePassword/isValidCluePassword';
+import {InputPassword} from '../../types/InputFields';
+import {validatePassword} from '../../services/validatePassword/validatePassword';
+import {validateConfirmPassword} from '../../services/validateConfirmPassword/validateConfirmPassword';
 import './WizardStep2.css';
 
 const WizardStep2: React.FC = () => {
-  const [isValidFormFields, setIsValidFormFields] = useState<boolean>(false);
-  const {state, clearWizard, createPasswordManager} = useContext(WizardContext);
-  console.log(state.currentStep);
+  const {clearWizard, verifyPasswordManager} = useContext(WizardContext);
+  const [isValidForm, setIsValidForm] = useState<boolean>(false);
 
-  const [password, setPassword] = useState<Password>({
+  const [password, setPassword] = useState<InputPassword>({
     value: "",
-    error: false,
+    error: undefined,
     isVisible: false
 
   });
-  const [confirmPassword, setConfirmPassword] = useState<Password>({
+  const [confirmPassword, setConfirmPassword] = useState<InputPassword>({
     value: "",
-    error: false,
+    error: undefined,
     isVisible: false
   });
   const [cluePassword, setCluePassword] = useState<string>('');
-  console.log('password: ', password)
-  console.log('confirmPassword: ', confirmPassword)
-  console.log('cluePassword: ', cluePassword)
+
+
+  useEffect(() => {
+    checkValidForm();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [password.value, confirmPassword.value])
 
 
   const handleOnPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newPassword = event.target.value;
     setPassword({
       ...password,
-      value: event.target.value
+      value: newPassword,
+      ...validatePassword(newPassword)
     });
-    isValidPassword(password);
 
   }
   const handleOnConfirmPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newConfirmPassword = event.target.value;
     setConfirmPassword({
       ...confirmPassword,
-      value: event.target.value
+      value: newConfirmPassword,
+      ...validateConfirmPassword(newConfirmPassword, password.value)
     });
-    isValidConfirmPassword(confirmPassword);
+
   }
   const handleOnCluePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCluePassword(event.target.value);
-    isValidCluePassword(cluePassword);
+    const newCluePassword = event.target.value;
+    setCluePassword(newCluePassword);
   }
 
   const handleonClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -53,15 +57,19 @@ const WizardStep2: React.FC = () => {
     clearWizard();
   }
 
-  const isValidForm = () => {
+  const checkValidForm = () => {
     if(password.error === false && confirmPassword.error === false) {
-      createPasswordManager(password.value);
+      setIsValidForm(true)
+    } else {
+      setIsValidForm(false)
     }
   }
 
   const handleOnSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    isValidForm();
+    if(isValidForm) {
+      verifyPasswordManager(password.value);
+    }
   }
   return (
     <form  className="WizardStep2 WizardStep" onSubmit={handleOnSubmit}>
@@ -83,15 +91,15 @@ const WizardStep2: React.FC = () => {
         <p>También puedes crear una pista que te ayude a recordar tu contraseña maestra.</p>
         <div>
           <label>Crea tu pista para recirdar tu contraseña (opcional)</label>
-          <input type="text" name="cluePassword" value={cluePassword} placeholder="Introduce tu pista" onChange={handleOnCluePassword}  />
+          <input type="text" name="cluePassword" maxLength={255} value={cluePassword} placeholder="Introduce tu pista" onChange={handleOnCluePassword}  />
           <span>0/255</span>
         </div>
       </fieldset>
     </fieldset>
     <fieldset className="actions">
-      <a href="#" className="cancelLink" onClick={handleonClick}>Cancelar</a>
+      <a href="/" className="cancelLink" onClick={handleonClick}>Cancelar</a>
       <button 
-      // disabled={!isValidFormFields} 
+      disabled={!isValidForm} 
       >Siguiente </button>
     </fieldset>
     </form>

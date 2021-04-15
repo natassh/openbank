@@ -6,16 +6,15 @@ import { WizardStep3 } from '../WizardStep3'
 import './WizardContent.css';
 
 const WizardContent: React.FC = () => {
-  const {state} = useContext(WizardContext);
-  console.log(state.currentStep);
+  const {currentStep} = useContext(WizardContext);
   
-  if(state.currentStep === 1) {
+  if(currentStep === 1) {
     return ( <WizardStep1/>)
   }
-  if(state.currentStep === 2) {
+  if(currentStep === 2) {
     return ( <WizardStep2/>)
   }
-  if(state.currentStep === 3) {
+  if(currentStep === 3) {
     return ( <WizardStep3/>)
   } 
   return (
