@@ -76,4 +76,11 @@ form {
     text-decoration: underline;
     cursor: pointer;
   }
+  & button:disabled {
+    opacity: 0.3;
+  }
+  & button:disabled:hover {
+    text-decoration: none;
+    cursor: no-drop;
+  }
 }

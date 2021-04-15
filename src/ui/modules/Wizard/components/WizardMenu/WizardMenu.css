@@ -46,7 +46,7 @@
     background-color: var(--secondary-bg);
     position: absolute;
     top: calc( ( 100% - 3px ) / 2 );
-    left: 1.625rem;
+    left: 1.5625rem;
   }
   
   & .active:before {
@@ -65,7 +65,7 @@
   }
   & .active:after {
     width: 2rem;
-    left: 2.0625rem;
+    left: 2.125rem;
   }
   & .checked:before {
   background-color: var(--primary-color);
