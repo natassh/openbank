@@ -1,14 +1,14 @@
 import React from 'react';
 import { WizardProvider } from './context/WizardProvider'
 import { WizardContent } from './components/WizardContent';
-import { WizardSteps } from './components/WizardSteps'
+import { WizardMenu } from './components/WizardMenu'
 import './Wizard.css'
 
 const Wizard: React.FC = () => {
   return (
     <section className="Wizard">
       <WizardProvider>
-        <WizardSteps/>
+        <WizardMenu/>
         <WizardContent/>
       </WizardProvider>
     </section>

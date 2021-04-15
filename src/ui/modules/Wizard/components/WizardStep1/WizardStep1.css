@@ -1,0 +1,54 @@
+.WizardStep1 {
+  margin-bottom: 1rem;
+  & ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    margin-top: 3.5rem;
+    margin-bottom: 2.5rem;
+    & li {
+      width: 17rem;
+      list-style: none;
+      font-family: var(--main-font);
+      font-size: 0.8rem;
+      font-weight: var(--regular);
+      display: flex;
+      flex-direction: column;
+      margin-right: 4rem;
+      text-align: center;
+      & figure {
+        /* width: 8rem;
+        height: 8rem; */
+        margin: 0 auto;
+        margin-bottom: 1rem;
+      }
+      & img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  & fieldset > div {
+    margin-bottom: 2rem;
+  }
+  & label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  & input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    width: 1.3rem;
+    height: 1.3rem;
+    padding-left: 1rem;
+    margin-right: 0.6rem;
+  }
+  
+}
+.WizardStep1 li:last-child {
+  margin-right: 0;
+}

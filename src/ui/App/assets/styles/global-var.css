@@ -2,6 +2,7 @@
 
   /* --bg: #F2F2F2; */
   --bg: #CCD5DA;
+  --border-color: #F5F5F5;
   --secondary-bg: #798F9C;
   --primary-color: #FF0049;
   --secondary-color: #002B45;
@@ -9,10 +10,11 @@
   --white: #FFFFFF;
   --black: #000000;
 
-  --main-font: 'Markazi Text', serif;;
-  --bold: 700;
+  --main-font: 'Poppins', sans-serif;
   --semi-bold: 600;
+  --medium: 500;
   --regular: 400;
+  --light: 300;
 }
 
 

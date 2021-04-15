@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { WizardContext } from '../../context/WizardProvider'
-import './WizardSteps.css';
+import './WizardMenu.css';
 
-const WizardSteps: React.FC = () => {
-  const {state} = useContext(WizardContext);
-  console.log(state)
+const WizardMenu: React.FC = () => {
+  // const {state} = useContext(WizardContext);
+  // console.log(state)
 
   return (
-    <ul className="WizardSteps">
+    <ul className="WizardMenu">
       <li className="checked"><span>1</span></li>
       <li className="active"><span>2</span></li>
       <li><span>3</span></li>
@@ -15,4 +15,4 @@ const WizardSteps: React.FC = () => {
   );
 }
 
-export {WizardSteps};
+export {WizardMenu};
