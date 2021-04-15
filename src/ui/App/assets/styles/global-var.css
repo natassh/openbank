@@ -1,0 +1,17 @@
+:root {
+
+  /* --bg: #F2F2F2; */
+  --bg: #fff;
+  --primary-color: #FF0049;
+  --secondary-color: #002B45;
+  --terciary-color: #FFF1E5;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --main-font: 'Markazi Text', serif;;
+  --bold: 700;
+  --semi-bold: 600;
+  --regular: 400;
+}
+
+
