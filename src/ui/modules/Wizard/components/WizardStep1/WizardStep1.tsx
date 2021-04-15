@@ -5,11 +5,11 @@ import WizardStepIco2 from '../../../../App/assets/images/WizardStepIco2.png';
 import './WizardStep1.css';
 
 const WizardStep1: React.FC = () => {
-  const [isAcceptedTerms, setIsAcceptedTerms] = useState<boolean>(false);
-  console.log('isAcceptedTerms: ', isAcceptedTerms);
-
-  // const {state} = useContext(WizardContext);
+  const {state, acceptTerms} = useContext(WizardContext);
   // console.log(state.currentStep);
+
+  const [isAcceptedTerms, setIsAcceptedTerms] = useState<boolean>(false);
+  // console.log('isAcceptedTerms: ', isAcceptedTerms);
 
   const handleOnChangeThermsOfAge = () => {
     setIsAcceptedTerms(!isAcceptedTerms)
@@ -17,7 +17,8 @@ const WizardStep1: React.FC = () => {
 
   const handleOnSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log("Pulsado boton W1 para pasar al W2")
+    // console.log("Pulsado boton W1 para pasar al W2")
+    acceptTerms();
   }
   return (
   <form  className="WizardStep1 WizardStep" onSubmit={handleOnSubmit}>
