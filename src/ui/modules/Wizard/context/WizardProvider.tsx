@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Wizard } from '../types/wizard'
+import {Password} from '../types/password';
+import { Wizard } from '../types/wizard';
+import {verifyPassword} from '../services/verifyPassword'
 
 type WizardContextState = {
     state: Wizard,
     acceptTerms: () => void,
-    clearWizard: () => void
+    clearWizard: () => void,
+    createPasswordManager: (password:string) => void
 }
 
 export const WizardContext = React.createContext<WizardContextState>({
@@ -13,8 +16,8 @@ export const WizardContext = React.createContext<WizardContextState>({
         verifyPassword: false
     },
     acceptTerms:() => {},
-    clearWizard:() => {}
-	
+    clearWizard:() => {},
+    createPasswordManager: (password:string) => {}
 });
 
 type WizardProviderProps = {
@@ -39,11 +42,17 @@ const WizardProvider: React.FC<WizardProviderProps> = ({children}) => {
             verifyPassword: false
         })
     }
+    const createPasswordManager = async (password: string) => {
+        console.log("password:", password);
+        const verifyPasswordResponse = await verifyPassword(password);
+        console.log('verifyPasswordResponse ', verifyPasswordResponse)
+    }
 
 	const value = {
         state,
         acceptTerms,
-        clearWizard
+        clearWizard,
+        createPasswordManager
 	}
 
     return (
