@@ -1,7 +1,7 @@
 
 /// <reference types="cypress" />
 
-context('Projects', () => {
+context('Openbank', () => {
 
     it('Can open the app', () => {
 
