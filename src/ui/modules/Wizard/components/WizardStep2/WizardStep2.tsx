@@ -106,7 +106,7 @@ const WizardStep2: React.FC = () => {
           <input type={password.isVisible ? 'text' : 'password'} id="password" value={password.value} placeholder="Contraseña" onChange={handleOnPassword}  />
           <span onClick={handleIsVsiblePassword}>{ password.isVisible ? <IcoEyeOpen width={24} height={24} />: <IcoEyeClose width={24} height={24} />}</span>
           <div className="errors">
-            { typeof password.error === 'object' && password.error.map( (error: string) => <p>{ error}</p>) }
+            { typeof password.error === 'object' && password.error.map( (error: string, index: number) => <p key={index}>{ error}</p>) }
           </div>
           
         </div>
