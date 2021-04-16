@@ -131,10 +131,10 @@ const WizardStep2: React.FC = () => {
       </fieldset>
     </fieldset>
     <fieldset className="actions">
-      <a href="/" className="cancelLink" onClick={handleonClick}>Cancelar</a>
+      <a href="/" className="cancelLink" onClick={handleonClick}>{t('_cancel_step')}</a>
       <button 
       disabled={!isValidForm} 
-      >Siguiente</button>
+      >{t('_next_step')}</button>
     </fieldset>
     </form>
   );

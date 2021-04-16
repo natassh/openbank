@@ -30,21 +30,21 @@ const WizardStep1: React.FC = () => {
           <figure>
             <img src={WizardStepIco1} alt="Silueta de una cabeza" />
           </figure>
-          Guarda aquí todas tus contraseñas, datos o cualquier información, olvida las notas de papel y las aplicaciones no protegidas.
+          {t('_step1_logo1_info')}
         </li>
         <li>
           <figure>
             <img src={WizardStepIco2} alt="Icono de una caja fuerte con un candado" />
           </figure>
-          Crea tu clave maestra: solo tú podrás acceder a tus secretos con ella.
+          {t('_step1_logo2_info')}
         </li>
       </ul>
       <div>
-        <h2>Cómo funciona</h2>
+        <h2>{t('_step1_second_title')}</h2>
         <p>En primer lugar, debes crear una contraseña diferente para sus pertenencias electrónicas. NO podrás recuperar tu contraseña, así que recuérdala bien.</p>
       </div>
       <div>
-        <h2>Qué datos puedes guardar</h2>
+        <h2>{t('_step1_third_title')}</h2>
         <p>Por ejemplo, el número de tu tarjeta, el PIN y el PUK de tu teléfono móvil, el número de serie de alguno de tus dispositivos o cualquier información que necesites tener en lugar seguro.</p>
       </div>
     </fieldset>
@@ -55,9 +55,9 @@ const WizardStep1: React.FC = () => {
           id="thermsOfAge" 
           onChange={handleOnChangeThermsOfAge}
         /> 
-        Confirmo que soy mayor de edad.
+        {t('_step1_thermsOfAge')}
         </label>
-      <button disabled={!isAcceptedTerms}>Siguiente </button>
+      <button disabled={!isAcceptedTerms}>{t('_next_step')} </button>
     </fieldset>
     </form>
   );
