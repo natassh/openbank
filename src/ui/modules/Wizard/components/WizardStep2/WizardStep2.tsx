@@ -3,12 +3,15 @@ import { WizardContext } from '../../context/WizardProvider';
 import {InputPassword} from '../../types/InputFields';
 import {validatePassword} from '../../services/validatePassword/validatePassword';
 import {validateConfirmPassword} from '../../services/validateConfirmPassword/validateConfirmPassword';
+import {TitleStyled} from '../TitleStyled'
 import { ReactComponent as IcoEyeOpen } from "../../../../App/assets/images/icoEyeOpen.svg";
 import { ReactComponent as IcoEyeClose } from "../../../../App/assets/images/icoEyeClose.svg";
+import { useTranslation } from 'react-i18next';
 import './WizardStep2.css';
 
 const WizardStep2: React.FC = () => {
   const {clearWizard, verifyPasswordManager} = useContext(WizardContext);
+  const { t } = useTranslation();
   const [isValidForm, setIsValidForm] = useState<boolean>(false);
 
   const [password, setPassword] = useState<InputPassword>({
@@ -94,7 +97,9 @@ const WizardStep2: React.FC = () => {
   return (
     <form  className="WizardStep2 WizardStep" onSubmit={handleOnSubmit}>
     <fieldset>
-      <h1>Crea tu Password Manager</h1>
+      <TitleStyled>
+        {t('_step1_main_title')}
+      </TitleStyled>
       <p>En primer lugar, debes crear una contraseña diferente para sus pertenencias electrónicas.No podrás recuperar tu contraseña, así que recuérdala bien.
       </p>
       <fieldset className="wrapper">

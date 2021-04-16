@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { WizardContext } from '../../context/WizardProvider';
+import {TitleStyled} from '../TitleStyled'
 import WizardStepIco1 from '../../../../App/assets/images/WizardStepIco1.png';
 import WizardStepIco2 from '../../../../App/assets/images/WizardStepIco2.png';
 import { useTranslation } from 'react-i18next';
@@ -21,7 +22,9 @@ const WizardStep1: React.FC = () => {
   return (
   <form  className="WizardStep1 WizardStep" onSubmit={handleOnSubmit}>
     <fieldset>
-      <h1>{t('_step1_main_title')}</h1>
+      <TitleStyled>
+        {t('_step1_main_title')}
+      </TitleStyled>
       <ul>
         <li>
           <figure>
