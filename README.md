@@ -13,6 +13,10 @@
 ⚙️ Los estilos los he gestionado con css, con PostCSS en este caso, he sobreescrito un poco la configuración de webpack con `craco` para poder dar soporte al plugin de PostCSS que me gusta, que es el `nesting-rules`.
 
 ✅ Contiene tests unitarios con JEST, tests de integración con Testing Library y test e2e con Cypress.
+He relizado test unitarios para los validadores y servicios. 
+Los test de componentes son para los componentes del modulo Wizard.
+He creado 2 e2e para cubrir la apliocación en modo OK y modo KO.
+Todos los test que he realizado están por encima del 85% de coverage en el cual he ido mirando para subir un poco el porcentaje. Aún así se que hay más componentes que no he testeado, pero he realizado estos a modo de ejemplo.
 
 **Cositas a tener en cuenta:**
 
@@ -22,6 +26,8 @@
 He creado y usado un Componente `TitleStyled` de ejemplo donde uso Styled Components.
 
 ✨ En cuanto al Hook `useReducer`, como se usa para estados muy complejos, en mi caso no he visto la gran necesidad de tenerlo. Aún así, a modo de ejemplo de como usarlo he dejado un ejemplo en el fichero `WizardProvider`.
+
+
 
 🚀 Para levantar la aplicación:
 
