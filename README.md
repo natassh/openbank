@@ -16,7 +16,9 @@
 
 **Cositas a tener en cuenta:**
 
-✨ No suelo usar Styled Components, tampoco ninguna librería de CSS-in-JS ya que me gusta usar PostCSS como si fuese CSS del futuro, al estilo de Babel. No obstante, me puedo adaptar en función del proyecto ya que considero que es decisión de equipo.
+✨ He trabajado el Sistema de traducción y a modo de ejemplo solo he traducido algunas cadenas, no he hecho el resto por centrarme en otras partes.
+
+✨ No suelo usar Styled Components, tampoco ninguna librería de CSS-in-JS ya que me gusta usar PostCSS como Babel para así poder trabajar con el CSS del futuro. No obstante, me puedo adaptar en función del proyecto ya que considero que es decisión de equipo.
 He creado y usado un Componente `TitleStyled` de ejemplo donde uso Styled Components.
 
 ✨ En cuanto al Hook `useReducer`, como se usa para estados muy complejos, en mi caso no he visto la gran necesidad de tenerlo. Aún así, a modo de ejemplo de como usarlo he dejado un ejemplo en el fichero `WizardProvider`.
