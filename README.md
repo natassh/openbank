@@ -1,29 +1,32 @@
- # Getting Started with Create React App 🚀
+# Prueba Openbank de Natacha Ivannikova 🛠️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+⚛️ La aplicación está desarrollada con React y TypeScript usando el boilerplate CRA.
 
-## Built with 🛠️
+💚 Lo he desplegado en Netlify, esta es el enlace para poder probarla: [Test Openbank](https://openbank-test.netlify.app/).
 
-- [Create React App](https://github.com/facebook/create-react-app).
-- [TypeScript](https://www.typescriptlang.org/).
-- Tests with [JEST](https://jestjs.io/en/), [Testing Library](https://testing-library.com/) and [Cypress](https://www.cypress.io/)
+💜 Otra parte importante de este proyecto es la gestión del estado, la cual he gestionado con Context API. 
 
-## Available Scripts
+💅 En cuanto a la maqueación, he aprovechado a darle unos estilos conforme a la página web de Openbank.  
 
-In the project directory, you can run:
-### `npm start`
+📱 La página es responsive.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-### `npm run test`
+⚙️ Los estilos los he gestionado con css, con PostCSS en este caso, he sobreescrito un poco la configuración de webpack con `craco` para poder dar soporte al plugin de PostCSS que me gusta, que es el `nesting-rules`.
 
-Tests done with JEST and Testing Library.
+✅ Contiene tests unitarios con JEST, tests de integración con Testing Library y test e2e con Cypress.
 
-### `npm run e2e:open`
+**Cositas a tener en cuenta:**
 
-Tests done with Cypress.
-### `npm run build`
+✨ No suelo usar Styled Components, tampoco ninguna librería de CSS-in-JS ya que me gusta usar PostCSS como si fuese CSS del futuro, al estilo de Babel. No obstante, me puedo adaptar en función del proyecto ya que considero que es decisión de equipo.
+He creado y usado un Componente `TitleStyled` de ejemplo donde uso Styled Components.
 
-### Thanks
+✨ En cuanto al Hook `useReducer`, como se usa para estados muy complejos, en mi caso no he visto la gran necesidad de tenerlo. Aún así, a modo de ejemplo de como usarlo he dejado un ejemplo en el fichero `WizardProvider`.
+
+🚀 Para levantar la aplicación:
+
+- Modo desarrolo: `npm start`.
+- Si quieres lanzar los tests: `npm run test`.
+- Si quieres lanzar los tests de Cypres: `npm run e2e:open`.
 
 👩‍💻 con ❤️ por [Natacha](https://www.linkedin.com/in/natacha-ivannikova-261478113/) 😊
+
+
