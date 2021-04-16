@@ -28,6 +28,7 @@ He creado y usado un Componente `TitleStyled` de ejemplo donde uso Styled Compon
 - Modo desarrolo: `npm start`.
 - Si quieres lanzar los tests: `npm run test`.
 - Si quieres lanzar los tests de Cypres: `npm run e2e:open`.
+- Si quieres lanzar los tests con Coverage: `npm run test:coverage`.
 
 👩‍💻 con ❤️ por [Natacha](https://www.linkedin.com/in/natacha-ivannikova-261478113/) 😊
 
