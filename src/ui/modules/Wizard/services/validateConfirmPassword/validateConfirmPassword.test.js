@@ -1,6 +1,5 @@
 import { validateConfirmPassword } from './validateConfirmPassword';
 
-
 describe('validateConfirmPassword', () => {
     it('should has errors when the passwords not match', () => {
         // Arrange
