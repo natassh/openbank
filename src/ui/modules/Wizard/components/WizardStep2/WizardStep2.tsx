@@ -124,7 +124,7 @@ const WizardStep2: React.FC = () => {
         <div>
           <label htmlFor="cluePassword">Crea tu pista para recirdar tu contraseña (opcional)</label>
           <input type="text" id="cluePassword" maxLength={255} value={cluePassword} placeholder="Introduce tu pista" onChange={handleOnCluePassword}  />
-          <span>0/255</span>
+          <span>{cluePassword.length}/255</span>
         </div>
       </fieldset>
     </fieldset>
