@@ -1,9 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import {WizardStep3} from '../WizardStep3';
 import  * as useContextModule from 'react';
     
 describe('WizardStep3', () => {
     const mockUseContext = jest.spyOn(useContextModule, 'useContext'); 
+    const mockClearWizard = jest.fn();
 
     it('should show the wizard ok screen when the password is correct', () => {
         //Arrange
@@ -35,4 +36,23 @@ describe('WizardStep3', () => {
         expect(screen.getByText("Ha habido un error")).toBeInTheDocument();
     })
     
+    it(`should can press the cancel button for reset the state`, () => {
+        //Arrange
+        const contextData = {
+            isPasswordValid: false,
+            clearWizard:  mockClearWizard
+        };
+        mockUseContext.mockImplementation(() => contextData); 
+    
+
+        // Act
+        render(<WizardStep3/>)
+
+        // Assert 
+        const resetButton = screen.getByRole('link', { name: 'Volver a Password Manager' });
+
+        fireEvent.click(resetButton);
+        expect(mockClearWizard).toHaveBeenCalled();
+    })
+
 })

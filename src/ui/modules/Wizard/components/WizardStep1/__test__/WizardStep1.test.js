@@ -17,11 +17,12 @@ jest.mock('react-i18next', () => ({
     
 describe('WizardStep1', () => {
     const mockUseContext = jest.spyOn(useContextModule, 'useContext'); 
+    const mockAcceptTerms = jest.fn();
 
     it(`should show the change step button as disabled when we don't accept the terms`, () => {
         //Arrange
         const contextData = {
-            acceptTerms: false
+            acceptTerms: mockAcceptTerms
         };
         
         mockUseContext.mockImplementation(() => contextData); 
@@ -40,7 +41,7 @@ describe('WizardStep1', () => {
     it(`should show active the continue button when we accept the terms`, () => {
         //Arrange
         const contextData = {
-            acceptTerms: false
+            acceptTerms: mockAcceptTerms
         };
         
         mockUseContext.mockImplementation(() => contextData); 
@@ -57,6 +58,9 @@ describe('WizardStep1', () => {
         const continueButton = screen.getByRole('button', { name: '_next_step' });
 
         expect(continueButton).not.toBeDisabled();
+
+        fireEvent.click(continueButton);
+        expect(mockAcceptTerms).toHaveBeenCalled();
     })
 
     

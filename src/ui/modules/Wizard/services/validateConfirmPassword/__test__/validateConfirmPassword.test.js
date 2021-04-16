@@ -1,4 +1,4 @@
-import { validateConfirmPassword } from './validateConfirmPassword';
+import { validateConfirmPassword } from '../validateConfirmPassword';
 
 describe('validateConfirmPassword', () => {
     it('should has errors when the passwords not match', () => {

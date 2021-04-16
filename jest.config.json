@@ -1,8 +1,10 @@
 {
-    "testRegex": "/*.test.js$",
+    "testRegex": "*.test.js$",
     "collectCoverage": true,
     "coverageReporters": ["lcov"],
-    "coverageDirectory": "test-coverage",
+    "collectCoverageFrom": [
+        "./src/ui/modules/**/*.ts"
+    ],
     "coverageThreshold": {
      "global": {
      "branches": 0,

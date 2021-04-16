@@ -1,4 +1,4 @@
-import { validatePassword } from './validatePassword';
+import { validatePassword } from '../validatePassword';
 
 describe('validatePassword', () => {
     it('should has error when the password does not have a number', () => {

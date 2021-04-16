@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import type {  Wizard, WizardProviderProps, WizardContextState } from '../types/wizard';
-import {verifyPassword} from '../services/verifyPassword'
+import {verifyPassword} from '../services/verifyPassword/verifyPassword'
 
 const WizardContext = React.createContext<WizardContextState>({
     currentStep: 1,
