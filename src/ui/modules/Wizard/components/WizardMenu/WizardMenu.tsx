@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { WizardContext } from '../../context/WizardProvider'
-
 import './WizardMenu.css';
 
 const STEPS = [1, 2, 3];

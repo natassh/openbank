@@ -1,11 +1,11 @@
 select {
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    height: 2.875rem;
-    padding: 0.5rem;
-    width: 10rem;
-    border: 1px solid var(--secondary-color);
-    margin-bottom: 2rem;
- }
- select:focus{ outline: none;}
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 2.875rem;
+  padding: 0.5rem;
+  width: 10rem;
+  border: 1px solid var(--secondary-color);
+  margin-bottom: 2rem;
+}
+select:focus{ outline: none;}

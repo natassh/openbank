@@ -2,8 +2,6 @@ import React, { useReducer } from 'react';
 import type {  Wizard, WizardProviderProps, WizardContextState } from '../types/wizard';
 import {verifyPassword} from '../services/verifyPassword'
 
-
-
 const WizardContext = React.createContext<WizardContextState>({
     currentStep: 1,
     isPasswordValid: null,
@@ -37,7 +35,6 @@ const reducer = (state: Wizard, action: any) => {
         return state;
     }
   };
-
 
 const initialState = {
     currentStep: 1,

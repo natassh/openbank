@@ -3,7 +3,6 @@ import { WizardContext } from '../../context/WizardProvider';
 import { WizardStep1 } from '../WizardStep1'
 import { WizardStep2 } from '../WizardStep2'
 import { WizardStep3 } from '../WizardStep3'
-import './WizardContent.css';
 
 const WizardContent: React.FC = () => {
   const {currentStep} = useContext(WizardContext);

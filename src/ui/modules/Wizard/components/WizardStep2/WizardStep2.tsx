@@ -19,7 +19,6 @@ const WizardStep2: React.FC = () => {
     error: undefined,
     isVisible: false
   });
-  console.log()
   const [confirmPassword, setConfirmPassword] = useState<InputPassword>({
     value: "",
     error: undefined,
@@ -33,7 +32,6 @@ const WizardStep2: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [password.value, confirmPassword.value])
 
-  console.log('a', password)
 
   const handleOnPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newPassword = event.target.value;

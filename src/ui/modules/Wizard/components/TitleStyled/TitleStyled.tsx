@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import './TitleStyled.css';
 
 const Title = styled.h1`
   font-family: var(--main-font);
@@ -21,7 +20,6 @@ const Title = styled.h1`
     left: 0;
   }
 `;
-
 
 const TitleStyled: React.FC<TitleStyledProps> = ({children}) => {
   return (
