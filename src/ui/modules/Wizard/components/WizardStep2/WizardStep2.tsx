@@ -102,8 +102,8 @@ const WizardStep2: React.FC = () => {
       </p>
       <fieldset className="wrapper">
         <div>
-          <label>Crea tu Contraseña Maestra</label>
-          <input type={password.isVisible ? 'text' : 'password'} name="password" value={password.value} placeholder="Contraseña" onChange={handleOnPassword}  />
+          <label htmlFor="password">Crea tu Contraseña Maestra</label>
+          <input type={password.isVisible ? 'text' : 'password'} id="password" value={password.value} placeholder="Contraseña" onChange={handleOnPassword}  />
           <span onClick={handleIsVsiblePassword}>{ password.isVisible ? <IcoEyeOpen width={24} height={24} />: <IcoEyeClose width={24} height={24} />}</span>
           <div className="errors">
             { typeof password.error === 'object' && password.error.map( (error: string) => <p>{ error}</p>) }
@@ -111,8 +111,8 @@ const WizardStep2: React.FC = () => {
           
         </div>
         <div>
-          <label>Repite tu Contraseña Maestra</label>
-          <input type={confirmPassword.isVisible ? 'text' : 'password'} name="confirmPassword" value={confirmPassword.value} placeholder="Repite tu contraseña" onChange={handleOnConfirmPassword}  />
+          <label htmlFor="confirmPassword">Repite tu Contraseña Maestra</label>
+          <input type={confirmPassword.isVisible ? 'text' : 'password'} id="confirmPassword" value={confirmPassword.value} placeholder="Repite tu contraseña" onChange={handleOnConfirmPassword}  />
           <span onClick={handleIsVsibleConfirmPassword}>{ confirmPassword.isVisible ?<IcoEyeOpen width={24} height={24} />: <IcoEyeClose width={24} height={24} />}</span>
           <div className="errors">
             { confirmPassword.error && <p>Las contraseñas deben coincidir</p> }
@@ -122,8 +122,8 @@ const WizardStep2: React.FC = () => {
       <fieldset>
         <p>También puedes crear una pista que te ayude a recordar tu contraseña maestra.</p>
         <div>
-          <label>Crea tu pista para recirdar tu contraseña (opcional)</label>
-          <input type="text" name="cluePassword" maxLength={255} value={cluePassword} placeholder="Introduce tu pista" onChange={handleOnCluePassword}  />
+          <label htmlFor="cluePassword">Crea tu pista para recirdar tu contraseña (opcional)</label>
+          <input type="text" id="cluePassword" maxLength={255} value={cluePassword} placeholder="Introduce tu pista" onChange={handleOnCluePassword}  />
           <span>0/255</span>
         </div>
       </fieldset>

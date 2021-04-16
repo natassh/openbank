@@ -1,0 +1,38 @@
+import { render, screen } from '@testing-library/react';
+import {WizardStep3} from '../WizardStep3';
+import  * as useContextModule from 'react';
+    
+describe('WizardStep3', () => {
+    const mockUseContext = jest.spyOn(useContextModule, 'useContext'); 
+
+    it('should show the wizard ok screen when the password is correct', () => {
+        //Arrange
+        const contextData = {
+            isPasswordValid: true
+        };
+        
+        mockUseContext.mockImplementation(() => contextData); 
+
+        // Act
+        render(<WizardStep3/>)
+
+        // Assert 
+        expect(screen.getByText("¡Tu Password Manager ya está creado!")).toBeInTheDocument();
+    })
+
+    it('should show the wizard ko screen when the password is not correct', () => {
+        //Arrange
+        const contextData = {
+            isPasswordValid: false
+        };
+        
+        mockUseContext.mockImplementation(() => contextData); 
+
+        // Act
+        render(<WizardStep3/>)
+
+        // Assert 
+        expect(screen.getByText("Ha habido un error")).toBeInTheDocument();
+    })
+    
+})
