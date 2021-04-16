@@ -34,6 +34,7 @@ form.WizardStep2 {
         align-items: flex-start;
         border-bottom: none;
         margin-bottom: 1.5rem;
+        padding-bottom: 0;
         & > div {
             margin-right: 2rem;
             position: relative;
@@ -66,4 +67,26 @@ form.WizardStep2 {
             color: var(--secondary-bg)
         }
     }
+    & .errors p {
+        margin-bottom:.5rem;
+        max-width: 100%;
+        color: var(--primary-color)
+    }
 }
+@media screen and (max-width: 660px) {
+    form.WizardStep2 .wrapper > div {
+        width: 47%;
+    }
+    form.WizardStep2 fieldset > div input {
+        width: 100%;
+    }
+  }
+  @media screen and (max-width: 519px) {
+    form.WizardStep2 .wrapper {
+        flex-direction: column;
+    }
+    form.WizardStep2 .wrapper > div {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+  }

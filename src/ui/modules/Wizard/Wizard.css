@@ -1,5 +1,5 @@
 .Wizard {
-  width: 900px;
+  width: 56.25rem;
   margin: 0 auto;
   border: 1px solid var(--bg);
   padding-bottom: 2rem;
@@ -21,11 +21,11 @@
     display: block;
     content: "";
     width: 2.8rem;
-    height: 3px;
+    height: 0.1875rem;
     background-color: #40C3DF;
     color: #40C3DF;
     position: absolute;
-    bottom: -5px;
+    bottom: -0.3125rem;
     left: 0;
   }
   & h2 {
@@ -121,4 +121,31 @@ form {
 }
 .link:hover {
   text-decoration: underline;
+}
+@media screen and (max-width: 899px) {
+  .Wizard {
+    width: 45.25rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .Wizard {
+    width: 100%;
+  }
+  .WizardStep > fieldset {
+    padding: 0 2rem 0 2rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .WizardStep h1 {
+    text-align: center;
+  }
+  .WizardStep h1:before {
+    bottom: -0.75rem;
+    left: calc( ( 100% - 2.8rem ) / 2 );
+  }
+}
+@media screen and (max-width: 424px) {
+  form fieldset.actions {
+    flex-direction: column;
+  }
 }

@@ -52,3 +52,22 @@
 .WizardStep1 li:last-child {
   margin-right: 0;
 }
+@media screen and (max-width: 767px) {
+  .WizardStep1 ul li {
+    width: 12rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .WizardStep1 ul {
+    flex-direction: column;
+  }
+  .WizardStep1 ul li {
+    width: 100%;
+    margin-right: 0;;
+  }
+}
+@media screen and (max-width: 424px) {
+  .WizardStep1 label {
+    margin-bottom: 2rem;
+  }
+}
